@@ -256,8 +256,12 @@ public class IntentPlugin extends CordovaPlugin {
     }
 
     public boolean getFileNameFromContentUrl(final JSONArray data, final CallbackContext context) {
-        Log.d("IntentPlugin", "data length "+data.length());
-        Log.d("IntentPlugin", "data[0] "+data.getString(0));
+        try {
+            Log.d("IntentPlugin", "data length "+data.length());
+            Log.d("IntentPlugin", "data[0] "+data.getString(0));
+        } finally{
+            
+        }
         if(data.length() != 1) {
             context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
             return false;

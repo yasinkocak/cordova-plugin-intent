@@ -269,14 +269,16 @@ public class IntentPlugin extends CordovaPlugin {
         ContentResolver cR = this.cordova.getActivity().getApplicationContext().getContentResolver();
         Cursor cursor = null;
         try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor = cR.query(Uri.parse(data.getString(0)),  proj, null, null, null);
+            //String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = cR.query(Uri.parse(data.getString(0)),  null, null, null, null);
             int column_index = cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME);
             cursor.moveToFirst();
 
             context.sendPluginResult(new PluginResult(PluginResult.Status.OK, cursor.getString(column_index)));
             Log.d("IntentPlugin", cursor.getString(column_index));
             return true;
+        } catch(Exception e){
+            Log.e("IntentPlugin", e.getMessage(), e);
         } finally {
             if (cursor != null) {
                 cursor.close();

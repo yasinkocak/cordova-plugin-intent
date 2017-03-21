@@ -254,6 +254,31 @@ public class IntentPlugin extends CordovaPlugin {
             return false;
         }
     }
+
+    public boolean getFileNameFromContentUrl(final JSONArray data, final CallbackContext context) {
+        if(data.length() != 1) {
+            context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+            return false;
+        }
+        ContentResolver cR = this.cordova.getActivity().getApplicationContext().getContentResolver();
+        Cursor cursor = null;
+        try {
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = cR.query(Uri.parse(data.getString(0)),  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME);
+            cursor.moveToFirst();
+
+            context.sendPluginResult(new PluginResult(PluginResult.Status.OK, cursor.getString(column_index)));
+            return true;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+
+            context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+            return false;
+        }
+    }
     
     public boolean extractFileFromContentUrl(final JSONArray data, final CallbackContext context) {
         if (data.length() != 1) {

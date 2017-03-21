@@ -259,8 +259,8 @@ public class IntentPlugin extends CordovaPlugin {
         try {
             Log.d("IntentPlugin", "data length "+data.length());
             Log.d("IntentPlugin", "data[0] "+data.getString(0));
-        } finally{
-            
+        } catch(Exception){
+
         }
         if(data.length() != 1) {
             context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));

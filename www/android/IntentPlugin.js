@@ -26,6 +26,18 @@ IntentPlugin.prototype.setNewIntentHandler = function(method) {
     );
 };
 
+IntentPlugin.prototype.getFileNameFromContentUrl = function(uri, successCallback, failureCallback) {
+    'use strict'
+
+    cordova.exec (
+        successCallback,
+        failureCallback,
+        'IntentPlugin',
+        'getRealPathFromContentUrl',
+        [uri]
+    );
+};
+
 IntentPlugin.prototype.getRealPathFromContentUrl = function(uri, successCallback, failureCallback) {
     'use strict'
 

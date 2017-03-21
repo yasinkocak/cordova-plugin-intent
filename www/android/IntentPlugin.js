@@ -33,7 +33,7 @@ IntentPlugin.prototype.getFileNameFromContentUrl = function(uri, successCallback
         successCallback,
         failureCallback,
         'IntentPlugin',
-        'getRealPathFromContentUrl',
+        'getFileNameFromContentUrl',
         [uri]
     );
 };

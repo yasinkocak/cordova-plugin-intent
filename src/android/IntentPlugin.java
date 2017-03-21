@@ -269,6 +269,7 @@ public class IntentPlugin extends CordovaPlugin {
             cursor.moveToFirst();
 
             context.sendPluginResult(new PluginResult(PluginResult.Status.OK, cursor.getString(column_index)));
+            Log.d("IntentPlugin", cursor.getString(column_index));
             return true;
         } finally {
             if (cursor != null) {

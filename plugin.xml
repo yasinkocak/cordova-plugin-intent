@@ -30,8 +30,7 @@
             <intent-filter>
                 <action android:name='android.intent.action.SEND' />
                 <action android:name='android.intent.action.SEND_MULTIPLE'/>
-                <!-- <category android:name='android.intent.category.DEFAULT' /> -->
-                <category android:name='android.intent.category.OPENABLE' /> <!-- only share files -->
+                <category android:name='android.intent.category.DEFAULT' />
                 <data android:mimeType='*/*' />
             </intent-filter>
         </config-file>

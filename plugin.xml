@@ -9,8 +9,8 @@
     <description>Cordova Plugin for Android to access intent</description>
     <license>MIT</license>
 
-    <repo>https://github.com/napolitano/cordova-plugin-intent</repo>
-    <issue>https://github.com/napolitano/cordova-plugin-intent/issues</issue>
+    <repo>https://github.com/mevinDhun/cordova-plugin-intent</repo>
+    <issue>https://github.com/mevinDhun/cordova-plugin-intent/issues</issue>
 
     <keywords>cordova,intent,share,send,android</keywords>
 
@@ -29,7 +29,6 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
             <intent-filter>
                 <action android:name='android.intent.action.SEND' />
-                <action android:name='android.intent.action.SEND_MULTIPLE'/>
                 <category android:name='android.intent.category.DEFAULT' />
                 <data android:mimeType='text/plain' />
             </intent-filter>
